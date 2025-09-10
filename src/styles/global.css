@@ -1,0 +1,509 @@
+/*!
+ * 全局样式文件 - 表单库系统
+ * 包含CSS变量、重置样式、基础样式和工具类
+ */
+
+/* ==========================================================================
+   CSS自定义属性（变量）
+   ========================================================================== */
+
+:root {
+  /* 颜色系统 - 主色调（小清新风格） */
+  --color-primary: #64b5f6;          /* 柔和的天空蓝 */
+  --color-primary-light: #90caf9;    /* 浅天空蓝 */
+  --color-primary-dark: #42a5f5;     /* 深天空蓝 */
+  --color-primary-gradient: linear-gradient(135deg, #81d4fa 0%, #b3e5fc 100%);
+  
+  /* 颜色系统 - 中性色（柔和色调） */
+  --color-white: #ffffff;
+  --color-gray-50: #fafafa;          /* 极浅灰 */
+  --color-gray-100: #f5f5f5;         /* 浅灰 */
+  --color-gray-200: #eeeeee;         /* 浅灰 */
+  --color-gray-300: #e0e0e0;         /* 中灰 */
+  --color-gray-400: #bdbdbd;         /* 灰 */
+  --color-gray-500: #9e9e9e;         /* 中深灰 */
+  --color-gray-600: #757575;         /* 深灰 */
+  --color-gray-700: #616161;         /* 更深灰 */
+  --color-gray-800: #424242;         /* 近黑灰 */
+  --color-gray-900: #212121;         /* 近黑 */
+  --color-black: #000000;
+  
+  /* 颜色系统 - 功能色（柔和版本） */
+  --color-success: #66bb6a;          /* 柔和的绿色 */
+  --color-warning: #ffb74d;          /* 柔和的橙色 */
+  --color-error: #ef5350;            /* 柔和的红色 */
+  --color-info: #42a5f5;             /* 信息蓝 */
+  
+  /* 小清新特色颜色 */
+  --color-mint: #80cbc4;             /* 薄荷绿 */
+  --color-lavender: #b39ddb;         /* 薰衣草紫 */
+  --color-peach: #ffab91;            /* 蜜桃色 */
+  --color-cream: #fff8e1;            /* 奶油色 */
+  --color-sky: #e1f5fe;              /* 天空蓝 */
+  
+  /* 间距系统 */
+  --space-1: 0.25rem;    /* 4px */
+  --space-2: 0.5rem;     /* 8px */
+  --space-3: 0.75rem;    /* 12px */
+  --space-4: 1rem;       /* 16px */
+  --space-5: 1.25rem;    /* 20px */
+  --space-6: 1.5rem;     /* 24px */
+  --space-8: 2rem;       /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+  
+  /* 圆角系统 */
+  --radius-sm: 0.25rem;  /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem;    /* 8px */
+  --radius-xl: 0.75rem;   /* 12px */
+  --radius-2xl: 1rem;     /* 16px */
+  --radius-full: 9999px;
+  
+  /* 阴影系统 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* 过渡动画 */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+  
+  /* 字体系统 */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-family-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  --font-family-serif: 'Georgia', 'Times New Roman', serif;
+  
+  /* 字体大小 */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  --text-5xl: 3rem;      /* 48px */
+  
+  /* 行高 */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  
+  /* 字重 */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* 布局 */
+  --container-max-width: 1200px;
+  --container-padding: var(--space-4);
+  
+  /* z-index 层级 */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal: 1040;
+  --z-index-popover: 1050;
+  --z-index-tooltip: 1060;
+}
+
+/* ==========================================================================
+   重置样式（基于Modern Reset）
+   ========================================================================== */
+
+/* Box sizing规则 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 移除默认边距 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 设置核心默认值 */
+html {
+  line-height: var(--leading-normal);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 移除列表样式 */
+ul, ol {
+  list-style: none;
+}
+
+/* 设置可点击元素的指针样式 */
+a, button, [role="button"] {
+  cursor: pointer;
+}
+
+/* 移除链接下划线 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 移除按钮默认样式 */
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+/* 移除输入框默认样式 */
+input, textarea, select {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+
+/* 移除图片边框 */
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 隐藏 visually 但保持对屏幕阅读器可用 */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   基础样式
+   ========================================================================== */
+
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--color-gray-800);
+  background-color: var(--color-white);
+  min-height: 100vh;
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-4);
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-base); }
+
+/* 段落样式 */
+p {
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-normal);
+}
+
+/* 链接样式 */
+a {
+  color: var(--color-primary);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* 代码样式 */
+code, pre {
+  font-family: var(--font-family-mono);
+  font-size: var(--text-sm);
+  background-color: var(--color-gray-100);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+}
+
+pre {
+  padding: var(--space-4);
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+}
+
+/* 容器样式 */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  width: 100%;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 var(--container-padding);
+}
+
+/* ==========================================================================
+   工具类（Utility Classes）
+   ========================================================================== */
+
+/* 布局工具 */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* 间距工具 */
+.m-0 { margin: 0; }
+.m-1 { margin: var(--space-1); }
+.m-2 { margin: var(--space-2); }
+.m-3 { margin: var(--space-3); }
+.m-4 { margin: var(--space-4); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--space-1); }
+.p-2 { padding: var(--space-2); }
+.p-3 { padding: var(--space-3); }
+.p-4 { padding: var(--space-4); }
+
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+
+.mb-1 { margin-bottom: var(--space-1); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+
+/* 文本工具 */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-xs { font-size: var(--text-xs); }
+.text-sm { font-size: var(--text-sm); }
+.text-base { font-size: var(--text-base); }
+.text-lg { font-size: var(--text-lg); }
+.text-xl { font-size: var(--text-xl); }
+.text-2xl { font-size: var(--text-2xl); }
+.text-3xl { font-size: var(--text-3xl); }
+.text-4xl { font-size: var(--text-4xl); }
+
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* 颜色工具 */
+.text-primary { color: var(--color-primary); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-error { color: var(--color-error); }
+.text-info { color: var(--color-info); }
+
+.bg-primary { background-color: var(--color-primary); }
+.bg-success { background-color: var(--color-success); }
+.bg-warning { background-color: var(--color-warning); }
+.bg-error { background-color: var(--color-error); }
+.bg-info { background-color: var(--color-info); }
+
+/* 小清新特色颜色工具 */
+.text-mint { color: var(--color-mint); }
+.text-lavender { color: var(--color-lavender); }
+.text-peach { color: var(--color-peach); }
+.text-cream { color: var(--color-cream); }
+.text-sky { color: var(--color-sky); }
+
+.bg-mint { background-color: var(--color-mint); }
+.bg-lavender { background-color: var(--color-lavender); }
+.bg-peach { background-color: var(--color-peach); }
+.bg-cream { background-color: var(--color-cream); }
+.bg-sky { background-color: var(--color-sky); }
+
+/* 渐变背景工具 */
+.bg-primary-gradient { background: var(--color-primary-gradient); }
+.bg-sky-gradient { background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); }
+.bg-mint-gradient { background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%); }
+.bg-lavender-gradient { background: linear-gradient(135deg, #ede7f6 0%, #d1c4e9 100%); }
+
+/* 圆角工具 */
+.rounded { border-radius: var(--radius-md); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* 阴影工具 */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+.shadow-2xl { box-shadow: var(--shadow-2xl); }
+
+/* 显示工具 */
+.hidden { display: none; }
+.block { display: block; }
+.inline { display: inline; }
+.inline-block { display: inline-block; }
+
+/* 定位工具 */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+/* 可见性工具 */
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+
+/* 溢出工具 */
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+
+/* 交互工具 */
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+
+.user-select-none { user-select: none; }
+
+/* 过渡动画工具 */
+.transition { transition: all var(--transition-normal); }
+.transition-fast { transition: all var(--transition-fast); }
+.transition-slow { transition: all var(--transition-slow); }
+
+/* ==========================================================================
+   响应式设计
+   ========================================================================== */
+
+/* 小型设备（手机，768px 及以下） */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: var(--space-3);
+  }
+  
+  .sm\:hidden { display: none; }
+  .sm\:block { display: block; }
+  .sm\:flex { display: flex; }
+  .sm\:grid { display: grid; }
+}
+
+/* 中型设备（平板，769px 至 1024px） */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .md\:hidden { display: none; }
+  .md\:block { display: block; }
+  .md\:flex { display: flex; }
+  .md\:grid { display: grid; }
+}
+
+/* 大型设备（桌面，1025px 及以上） */
+@media (min-width: 1025px) {
+  .lg\:hidden { display: none; }
+  .lg\:block { display: block; }
+  .lg\:flex { display: flex; }
+  .lg\:grid { display: grid; }
+}
+
+/* ==========================================================================
+   暗色模式支持
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 暗色模式 - 小清新风格 */
+    --color-white: #1e1e1e;
+    --color-gray-50: #2a2a2a;
+    --color-gray-100: #363636;
+    --color-gray-200: #424242;
+    --color-gray-300: #4e4e4e;
+    --color-gray-400: #5a5a5a;
+    --color-gray-500: #666666;
+    --color-gray-600: #727272;
+    --color-gray-700: #7e7e7e;
+    --color-gray-800: #8a8a8a;
+    --color-gray-900: #969696;
+    --color-black: #ffffff;
+    
+    /* 暗色模式下的主色调调整 */
+    --color-primary: #81d4fa;
+    --color-primary-light: #b3e5fc;
+    --color-primary-dark: #4fc3f7;
+    --color-primary-gradient: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+  }
+  
+  body {
+    color: var(--color-gray-200);
+    background-color: var(--color-gray-900);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-white);
+  }
+}
+
+/* ==========================================================================
+   打印样式
+   ========================================================================== */
+
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a, a:visited {
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

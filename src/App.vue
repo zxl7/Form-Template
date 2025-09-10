@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.svg" width="100" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <!-- 路由视图容器 -->
+    <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue'
+// 路由视图会自动渲染当前路由对应的组件
 </script>
 
 <style>
@@ -16,6 +16,5 @@ import HelloWorld from '@/components/HelloWorld.vue'
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
