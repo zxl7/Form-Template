@@ -6,14 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install:deps": "pnpm install",
-    "dev": "pnpm -F @project/web dev",
+    "dev": "pnpm -F @project/smart-form dev",
     "build": "pnpm -r build",
-    "build:web": "pnpm -F @project/web build"
+    "build:web": "pnpm -F @project/smart-form build"
   },
-  "keywords": ["form", "template", "monorepo"],
+  "keywords": [
+    "form",
+    "template",
+    "monorepo"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^24.7.2"
+    "@types/node": "^24.7.2",
+    "@vitejs/plugin-vue": "^6.0.1"
   }
 }
