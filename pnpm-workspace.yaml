@@ -1,0 +1,3 @@
+packages:
+  - "packages/*" # 共享库目录
+  - "apps/*" # 应用目录
