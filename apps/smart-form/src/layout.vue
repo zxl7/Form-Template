@@ -6,7 +6,7 @@
     </div>
   </header>
 
-  <div class="container">123123{{ activeTab }}</div>
+  <div class="container">{{ activeTab }}</div>
 
   <footer class="footer">
     <p>Smart Form © 2025 Created with 🌟</p>
