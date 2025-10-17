@@ -8,6 +8,37 @@ importers:
     devDependencies:
       '@types/node': registry.npmmirror.com/@types/node/24.7.2
 
+  apps/smart-form:
+    specifiers:
+      '@project/ui': workspace:*
+      '@project/utils': workspace:*
+      '@types/node': ^24.7.2
+      '@vitejs/plugin-vue': ^6.0.1
+      '@vue/tsconfig': ^0.8.1
+      lodash-es: ^4.17.21
+      pinia: ^3.0.3
+      sass: ^1.93.2
+      typescript: ~5.9.3
+      vite: npm:rolldown-vite@^7.1.14
+      vue: ^3.5.22
+      vue-router: ^4.6.2
+      vue-tsc: ^3.1.1
+    dependencies:
+      '@project/ui': link:../../packages/ui
+      '@project/utils': link:../../packages/utils
+      lodash-es: registry.npmmirror.com/lodash-es/4.17.21
+      pinia: registry.npmmirror.com/pinia/3.0.3_sf4q73uatisyuveg3irwv5ooby
+      sass: registry.npmmirror.com/sass/1.93.2
+      vue: registry.npmmirror.com/vue/3.5.22_typescript@5.9.3
+      vue-router: registry.npmmirror.com/vue-router/4.6.2_vue@3.5.22
+    devDependencies:
+      '@types/node': registry.npmmirror.com/@types/node/24.7.2
+      '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/6.0.1_75w245hm7nctzd3esgejybwbki
+      '@vue/tsconfig': registry.npmmirror.com/@vue/tsconfig/0.8.1_sf4q73uatisyuveg3irwv5ooby
+      typescript: registry.npmmirror.com/typescript/5.9.3
+      vite: registry.npmmirror.com/rolldown-vite/7.1.14_hlzjtsnr3ah2sfouicm533n7ii
+      vue-tsc: registry.npmmirror.com/vue-tsc/3.1.1_typescript@5.9.3
+
   apps/web:
     specifiers:
       '@project/ui': workspace:*
@@ -1544,6 +1575,12 @@ packages:
       lightningcss-win32-arm64-msvc: registry.npmmirror.com/lightningcss-win32-arm64-msvc/1.30.2
       lightningcss-win32-x64-msvc: registry.npmmirror.com/lightningcss-win32-x64-msvc/1.30.2
     dev: true
+
+  registry.npmmirror.com/lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash-es/-/lodash-es-4.17.21.tgz}
+    name: lodash-es
+    version: 4.17.21
+    dev: false
 
   registry.npmmirror.com/magic-string/0.30.19:
     resolution: {integrity: sha512-2N21sPY9Ws53PZvsEpVtNuSW+ScYbQdp4b9qUaL+9QkHUrGFKo56Lg9Emg5s9V/qrtNBmiR01sYhUOwu3H+VOw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/magic-string/-/magic-string-0.30.19.tgz}

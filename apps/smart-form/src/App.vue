@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <layout></layout>
+    <Layout></Layout>
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineComponent } from "vue"
 
-import layout from "./layout.vue"
+import Layout from "./layout.vue"
 
 defineComponent({
   components: {
-    layout,
+    Layout,
   },
 })
 </script>

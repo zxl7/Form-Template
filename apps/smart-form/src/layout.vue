@@ -6,7 +6,7 @@
     </div>
   </header>
 
-  <div class="container">{{ activeTab }}</div>
+  <div class="container">请选择组件：</div>
 
   <footer class="footer">
     <p>Smart Form © 2025 Created with 🌟</p>
@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-const activeTab = ref("dynamic")
+// const activeTab = ref("dynamic")
 </script>
 
 <style>
