@@ -1,29 +1,7 @@
-<template>
-  <header class="header">
-    <div class="logo">
-      <h1>Smart Form</h1>
-      <p>基于 Ant Design Vue 的智能表单组件库</p>
-    </div>
-  </header>
-
-  <div class="container">
-    <Editor />
-  </div>
-
-  <footer class="footer">
-    <p>Smart Form © 2025 Created 🌟</p>
-  </footer>
-</template>
+<template>组件</template>
 
 <script setup lang="ts">
-import { ref, defineComponent } from "vue"
-import Editor from "./views/editor.vue"
-
-defineComponent({
-  components: {
-    Editor,
-  },
-})
+import { ref } from "vue"
 
 // const activeTab = ref("dynamic")
 </script>

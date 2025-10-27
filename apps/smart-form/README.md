@@ -1,5 +1,9 @@
-# Vue 3 + TypeScript + Vite
+# 动态表单组件库
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+<!-- 按此顺序开发组件 -->
+<!-- 1. FormContainer.vue - 表单容器和布局 -->
+<!-- 2. InputWidget.vue - 文本输入 -->
+<!-- 3. SelectWidget.vue - 下拉选择 -->
+<!-- 4. RadioWidget.vue - 单选 -->
+<!-- 5. CheckboxWidget.vue - 多选 -->
+<!-- 6. NumberWidget.vue - 数字输入 -->
